@@ -1,68 +1,107 @@
-import Image from "next/image";
+import { BuyButton } from "./buy-button";
+import { PRICE_LABEL } from "@/lib/price";
+
+const features = [
+  {
+    title: "Off means off",
+    body: "One switch in the menu bar. The logo stays dark after you quit. No Terminal command, and no password every time you change it.",
+  },
+  {
+    title: "Any song",
+    body: "Music listens to what the Mac plays, not the room. Bass, melody, and hits each move the brightness. Quiet parts go dark.",
+  },
+  {
+    title: "Dark room, dark lid",
+    body: "Auto-brightness never turns the lamp fully off. Off in the dark does, when the room drops to 15 lux.",
+  },
+];
+
+const questions = [
+  {
+    q: "Which Macs?",
+    a: "Only the new MacBook Pro with the PROLED XDR display, the one with the glowing logo.",
+  },
+  {
+    q: "Does Music use the microphone?",
+    a: "No. It hears the audio leaving the Mac. Nothing is recorded or uploaded.",
+  },
+  {
+    q: "What do I get for the money?",
+    a: "A one-time license for one Mac: the menu bar app, music, and Off in the dark. Apple’s free Terminal command only turns the logo off.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="relative overflow-hidden">
+      <div className="pointer-events-none absolute left-1/2 top-[-12rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+      <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
+        <a href="#top" className="text-sm font-medium tracking-wide">
+          LidLight
+        </a>
+        <BuyButton compact />
+      </header>
+      <main id="top" className="mx-auto w-full max-w-5xl px-6 pb-24">
+        <section className="grid items-center gap-16 py-16 md:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="text-sm text-muted">MacBook Pro with PROLED XDR</p>
+            <h1 className="mt-4 max-w-xl text-5xl font-semibold tracking-tight text-balance sm:text-6xl">
+              The glowing logo, under your control.
+            </h1>
+            <p className="mt-6 max-w-lg text-lg leading-8 text-muted">
+              Turn it off. Let it follow a song. Or switch it off completely
+              when the room is dark. LidLight lives in the menu bar.
+            </p>
+            <div className="mt-8">
+              <BuyButton />
+              <p className="mt-3 text-sm text-muted">
+                {PRICE_LABEL} once. One Mac. 14-day refund.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="relative h-72 w-56 rounded-[2rem] border border-white/15 bg-gradient-to-b from-zinc-800 to-black shadow-2xl">
+              <div className="absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 rounded-full bg-white shadow-[0_0_40px_12px_rgba(255,255,255,0.45)]" />
+              <p className="absolute bottom-6 left-0 right-0 text-center text-xs tracking-[0.2em] text-zinc-500">
+                LID
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-10 border-t border-white/10 py-16 md:grid-cols-3">
+          {features.map((feature) => (
+            <div key={feature.title}>
+              <h2 className="text-xl font-medium">{feature.title}</h2>
+              <p className="mt-3 leading-7 text-muted">{feature.body}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="border-t border-white/10 py-16">
+          <h2 className="text-3xl font-semibold tracking-tight">
+            {PRICE_LABEL}, once.
+          </h2>
+          <p className="mt-4 max-w-xl leading-7 text-muted">
+            Pay on this page. Stripe emails the receipt. The license key and
+            the Mac download follow in a second email.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="mt-8">
+            <BuyButton />
+          </div>
+        </section>
+
+        <section className="border-t border-white/10 py-16">
+          <h2 className="text-3xl font-semibold tracking-tight">Questions</h2>
+          <div className="mt-8 divide-y divide-white/10">
+            {questions.map((item) => (
+              <div key={item.q} className="py-6">
+                <h3 className="text-lg font-medium">{item.q}</h3>
+                <p className="mt-2 max-w-2xl leading-7 text-muted">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
