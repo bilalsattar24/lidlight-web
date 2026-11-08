@@ -8,13 +8,13 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Turn off the glowing MacBook Pro logo — LidLight",
+  title: "Glowing MacBook Pro logo too bright in the dark — LidLight",
   description:
-    "LidLight turns the glowing Apple logo on the new MacBook Pro off, follows the music, or goes dark when the room does. Pay once.",
+    "Other apps only dim the glowing Apple logo. LidLight turns it completely off when the room is dark, and can follow the music. Pay once.",
   openGraph: {
-    title: "LidLight — control the glowing MacBook Pro logo",
+    title: "The glowing MacBook Pro logo, off when the room is dark",
     description:
-      "Turn it off, follow the music, or switch it off completely in a dark room.",
+      "Auto-brightness never goes fully dark. LidLight does, at 15 lux. Music is included.",
   },
 };
 

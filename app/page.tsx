@@ -3,16 +3,16 @@ import { PRICE_LABEL } from "@/lib/price";
 
 const features = [
   {
-    title: "Off means off",
-    body: "One switch in the menu bar. The logo stays dark after you quit. No Terminal command, and no password every time you change it.",
+    title: "Off in the dark",
+    body: "The lamp reads the room. At 15 lux or below it turns completely off. It comes back at 40 lux, so it does not flicker. Dimmed is still a light on the lid. Off is off.",
   },
   {
     title: "Any song",
-    body: "Music listens to what the Mac plays, not the room. Bass, melody, and hits each move the brightness. Quiet parts go dark.",
+    body: "Music listens to what the Mac plays, not a microphone. Bass, melody, and hits each move the brightness. The quiet parts go dark.",
   },
   {
-    title: "Dark room, dark lid",
-    body: "Auto-brightness never turns the lamp fully off. Off in the dark does, when the room drops to 15 lux.",
+    title: "A switch, not Terminal",
+    body: "One menu-bar control. The logo stays where you left it after you quit. You approve the Mac password once, not every time you change it.",
   },
 ];
 
@@ -27,7 +27,7 @@ const questions = [
   },
   {
     q: "What do I get for the money?",
-    a: "A one-time license for one Mac: the menu bar app, music, and Off in the dark. Apple’s free Terminal command only turns the logo off.",
+    a: "A one-time license for one Mac. The part you cannot get from the free Terminal command, or from a dimmer, is Off in the dark. Music is included.",
   },
 ];
 
@@ -46,11 +46,11 @@ export default function Home() {
           <div>
             <p className="text-sm text-muted">MacBook Pro with PROLED XDR</p>
             <h1 className="mt-4 max-w-xl text-5xl font-semibold tracking-tight text-balance sm:text-6xl">
-              The glowing logo, under your control.
+              Too bright in a dark room.
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-8 text-muted">
-              Turn it off. Let it follow a song. Or switch it off completely
-              when the room is dark. LidLight lives in the menu bar.
+              macOS dims the glowing logo with the room. It never turns it
+              off. LidLight does, the moment the room drops to 15 lux.
             </p>
             <div className="mt-8">
               <BuyButton />
